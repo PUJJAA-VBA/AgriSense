@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 85 25% 97%;
+    --foreground: 150 30% 12%;
+
+    --card: 80 20% 95%;
+    --card-foreground: 150 30% 12%;
+
+    --popover: 80 20% 95%;
+    --popover-foreground: 150 30% 12%;
+
+    --primary: 142 50% 28%;
+    --primary-foreground: 80 60% 96%;
+
+    --secondary: 42 76% 55%;
+    --secondary-foreground: 150 30% 12%;
+
+    --muted: 80 15% 90%;
+    --muted-foreground: 150 10% 40%;
+
+    --accent: 42 76% 55%;
+    --accent-foreground: 150 30% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 80 15% 85%;
+    --input: 80 15% 85%;
+    --ring: 142 50% 28%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 142 30% 18%;
+    --sidebar-foreground: 80 60% 96%;
+    --sidebar-primary: 42 76% 55%;
+    --sidebar-primary-foreground: 150 30% 12%;
+    --sidebar-accent: 142 30% 24%;
+    --sidebar-accent-foreground: 80 60% 96%;
+    --sidebar-border: 142 25% 25%;
+    --sidebar-ring: 42 76% 55%;
+
+    --chart-green: 142 50% 38%;
+    --chart-gold: 42 76% 55%;
+    --chart-blue: 210 60% 50%;
+    --chart-orange: 25 85% 55%;
+    --chart-red: 0 70% 55%;
+
+    --gradient-earth: linear-gradient(135deg, hsl(142 50% 28%), hsl(142 40% 22%));
+    --gradient-sun: linear-gradient(135deg, hsl(42 76% 55%), hsl(35 80% 50%));
+    --gradient-sky: linear-gradient(180deg, hsl(200 60% 85%), hsl(200 40% 95%));
+
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 150 20% 8%;
+    --foreground: 80 20% 92%;
+    --card: 150 18% 12%;
+    --card-foreground: 80 20% 92%;
+    --popover: 150 18% 12%;
+    --popover-foreground: 80 20% 92%;
+    --primary: 142 50% 40%;
+    --primary-foreground: 150 30% 8%;
+    --secondary: 42 60% 45%;
+    --secondary-foreground: 80 20% 92%;
+    --muted: 150 15% 18%;
+    --muted-foreground: 80 10% 60%;
+    --accent: 42 60% 45%;
+    --accent-foreground: 80 20% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 142 50% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-earth {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-earth);
+  }
+
+  .bg-gradient-earth {
+    background-image: var(--gradient-earth);
+  }
+
+  .bg-gradient-sun {
+    background-image: var(--gradient-sun);
+  }
+
+  .bg-gradient-sky {
+    background-image: var(--gradient-sky);
+  }
+}
