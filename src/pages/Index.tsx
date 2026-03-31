@@ -33,16 +33,16 @@ export default function Index() {
   year: 'numeric'
   });
 
-  const getGreeting = () => {
-  const hour = new Date().getHours();
+//   const getGreeting = () => {
+//   const hour = new Date().getHours();
 
-  if (hour < 12) return "Good Morning, Farmer 🌾";
-  if (hour < 17) return "Good Afternoon, Farmer 🌤️";
-  if (hour < 20) return "Good Evening, Farmer 🌇";
-  return "Good Night, Farmer 🌙";
-  };
+//   if (hour < 12) return "Good Morning🌾";
+//   if (hour < 17) return "Good Afternoon🌤️";
+//   if (hour < 20) return "Good Evening🌇";
+//   return "Good Night🌙";
+//   };
 
-const greeting = getGreeting();
+// const greeting = getGreeting();
 
   return (
     <Layout>
@@ -56,13 +56,14 @@ const greeting = getGreeting();
           <h1 className="text-3xl sm:text-4xl font-heading font-extrabold text-foreground">
             🌾 Weather Dashboard
           </h1>
-          <p className="font-semibold text-foreground mt-1">
+          <p className="text-lg font-semibold text-foreground mt-1">
             Real-time weather insights for smarter farming
           </p>
-          <p className="text-sm font-bold text-foreground/90 mt-1">
+          {/* <p className="text-lg font-bold text-foreground/90 mt-1">
             {greeting}
-          </p>
-          <p className="text-sm font-bold text-foreground/90 mt-1 tracking-wide text-right">
+          </p> */}
+          {/* text-right */}
+          <p className="text-lg font-bold text-foreground/90 mt-1 tracking-wide ">
             📅 {today}
           </p>
           
