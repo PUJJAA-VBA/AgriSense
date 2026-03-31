@@ -63,7 +63,8 @@ export default function Index() {
             {greeting}
           </p> */}
           {/* text-right */}
-          <p className="text-lg font-bold text-foreground/90 mt-1 tracking-wide ">
+
+          <p className="text-sm font-bold text-foreground/90 mt-1 tracking-wide text-right">
             📅 {today}
           </p>
           
