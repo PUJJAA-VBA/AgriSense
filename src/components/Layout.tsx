@@ -56,7 +56,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-white/20 bg-green-900/80 backdrop-blur-md py-4 text-center text-sm text-white">
         <div className="container mx-auto px-4 flex items-center justify-center gap-2">
           <Cloud className="w-4 h-4" />
-          <span>WeatherYield — Smart Farming with XGBoost-powered Insights</span>
+          <span>WeatherYield</span>
         </div>
       </footer>
     </div>

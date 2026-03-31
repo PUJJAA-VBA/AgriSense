@@ -39,7 +39,7 @@ export default function Graphs() {
   {/* CONTENT */}
   <div className="relative container mx-auto px-6 py-8 space-y-8">
     <div>
-          <h1 className="text-black/100 text-3xl font-heading font-extrabold text-primary">📊 Weather Analytics</h1>
+          <h1 className="text-black/90 text-3xl font-heading font-extrabold text-primary">📊 Weather Analytics</h1>
           <p className="text-black/100 text-muted-primary mt-1">7-day visual weather trends for agricultural planning</p>
         </div>
 
@@ -56,7 +56,9 @@ export default function Graphs() {
                   <XAxis dataKey="day" stroke="#000000" fontSize={12} />
                   <YAxis stroke="#000000" fontSize={12} unit="°C" />
                   <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 12 }} />
-                  <Legend />
+                  <Legend
+                    formatter={(value) => <span style={{ color: "#000" }}>{value}</span>}
+                  />
                   <Line type="monotone" dataKey="Max Temp" stroke="hsl(var(--chart-orange))" strokeWidth={3} dot={{ r: 4 }} />
                   <Line type="monotone" dataKey="Min Temp" stroke="hsl(var(--chart-blue))" strokeWidth={3} dot={{ r: 4 }} />
                 </LineChart>
