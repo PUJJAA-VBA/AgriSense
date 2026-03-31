@@ -39,7 +39,7 @@ export default function Graphs() {
   {/* CONTENT */}
   <div className="relative container mx-auto px-6 py-8 space-y-8">
     <div>
-          <h1 className="text-black/90 text-3xl font-heading font-extrabold text-primary">📊 Weather Analytics</h1>
+          <h1 className="text-black/80 text-3xl font-heading font-extrabold text-primary">📊 Weather Analytics</h1>
           <p className="text-black/100 text-muted-primary mt-1">7-day visual weather trends for agricultural planning</p>
         </div>
 
@@ -95,7 +95,7 @@ export default function Graphs() {
                   <CartesianGrid strokeDasharray="3 3" stroke="#000000" />
                   <XAxis dataKey="day" stroke="#000000" fontSize={12} />
                   <YAxis stroke="#000000" fontSize={12} unit="mm" />
-                  <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 12 }} />
+                  <Tooltip cursor={{ fill: "transparent" }} contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 12 }} />
                   <Bar dataKey="Rainfall" fill="hsl(var(--chart-blue))" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
