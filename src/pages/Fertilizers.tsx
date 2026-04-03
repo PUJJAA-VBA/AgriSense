@@ -305,8 +305,9 @@ export default function Fertilizers() {
             )}
 
         {showCategoriesOnly && (
-  <div className="bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-lg p-4">
-    <h2 className="text-lg font-bold mb-2">📂 Available Categories</h2>
+          <div className="max-h-50 overflow-y-auto mt-2 w-full bg-white/50 backdrop-blur-md border border-white/20 shadow-lg rounded-lg overflow-hidden p-4">
+  {/* <div className="bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-lg p-4"> */}
+      <h2 className="text-lg font-bold mb-2">📂 Available Categories</h2>
 
     {categories.map((cat) => (
       <div

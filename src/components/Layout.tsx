@@ -29,8 +29,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   <div className="absolute inset-0 bg-black/40" />
 
   {/* 🔹 Content */}
-  <div className="relative flex flex-col min-h-screen">
-      <header className="border-t border-white/20 bg-green-900/80 backdrop-blur-md shadow-xl backdrop-blur-md">
+  <div className="relative flex-1 flex-col min-h-screen">
+      <header className="bg-neutral-900/70 backdrop-blur-lg border-b border-white/20 shadow-lg  text-center text-sm text-white">
+      {/* className="bg-neutral-900/70 backdrop-blur-lg border-b border-white/20 shadow-lg"> */}
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="WeatherYield" width={40} height={40} className="rounded-lg" />
@@ -56,8 +57,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
       </header>
-      <main className="flex-1">{children}</main>
-      <footer className="border-t border-white/20 bg-green-900/80 backdrop-blur-md py-4 text-center text-sm text-white">
+      <main className="flex-1 flex-col min-h-screen">{children}</main>
+      <footer className="bg-neutral-900/50 backdrop-blur-lg border-b border-white/20 shadow-lg border-t border-white/20 bg-neutral-900/80 backdrop-blur-md py-4 text-center text-sm text-white">
         <div className="container mx-auto px-4 flex items-center justify-center gap-2">
           <Cloud className="w-4 h-4" />
           <span>AgriSense: A Next-Gen Weather-Driven Agricultural Intelligence System</span>

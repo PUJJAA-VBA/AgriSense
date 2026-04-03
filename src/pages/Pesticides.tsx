@@ -336,6 +336,306 @@ export default function Pesticides() {
   pesticide: "Thiram",
   amount: "2 g/kg seed",
   timing: "Before sowing"
+},
+{
+  disease: "Brown Planthopper",
+  crops: ["Rice"],
+  symptoms: "Yellowing and drying patches, hopper insects",
+  severity: "High",
+  pesticide: "Imidacloprid",
+  amount: "0.3 ml/L",
+  timing: "Early infestation",
+  purpose: "Controls sap sucking insects"
+},
+{
+  disease: "Sheath Blight",
+  crops: ["Rice"],
+  symptoms: "Oval lesions on leaf sheath",
+  severity: "High",
+  pesticide: "Validamycin",
+  amount: "2 ml/L",
+  timing: "Tillering stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "False Smut",
+  crops: ["Rice"],
+  symptoms: "Green balls on grains",
+  severity: "Medium",
+  pesticide: "Propiconazole",
+  amount: "1 ml/L",
+  timing: "Flowering stage",
+  purpose: "Prevents grain infection"
+},
+{
+  disease: "Stem Rot",
+  crops: ["Rice"],
+  symptoms: "Black lesions at stem base",
+  severity: "High",
+  pesticide: "Carbendazim",
+  amount: "1 g/L",
+  timing: "Early stage",
+  purpose: "Controls fungal infection"
+},
+{
+  disease: "Tungro Virus",
+  crops: ["Rice"],
+  symptoms: "Yellow-orange leaves, stunted growth",
+  severity: "High",
+  pesticide: "Imidacloprid",
+  amount: "0.5 ml/L",
+  timing: "Early stage",
+  purpose: "Controls vector insects"
+},
+{
+  disease: "Pink Bollworm",
+  crops: ["Cotton"],
+  symptoms: "Damaged cotton bolls",
+  severity: "High",
+  pesticide: "Spinosad",
+  amount: "0.3 ml/L",
+  timing: "Flowering stage",
+  purpose: "Controls larvae"
+},
+{
+  disease: "Alternaria Leaf Spot",
+  crops: ["Mustard"],
+  symptoms: "Dark concentric rings on leaves",
+  severity: "Medium",
+  pesticide: "Mancozeb",
+  amount: "2 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Yellow Rust",
+  crops: ["Wheat"],
+  symptoms: "Yellow stripes on leaves",
+  severity: "High",
+  pesticide: "Tebuconazole",
+  amount: "1 ml/L",
+  timing: "Early stage",
+  purpose: "Stops fungal spread"
+},
+{
+  disease: "Loose Smut",
+  crops: ["Wheat"],
+  symptoms: "Black powdery heads",
+  severity: "High",
+  pesticide: "Carboxin",
+  amount: "2 g/kg seed",
+  timing: "Before sowing",
+  purpose: "Seed treatment"
+},
+{
+  disease: "Pod Borer",
+  crops: ["Chickpea", "Pigeon Pea"],
+  symptoms: "Holes in pods",
+  severity: "High",
+  pesticide: "Indoxacarb",
+  amount: "1 ml/L",
+  timing: "Pod stage",
+  purpose: "Controls larvae"
+},
+{
+  disease: "Gram Wilt",
+  crops: ["Chickpea"],
+  symptoms: "Sudden drying plants",
+  severity: "High",
+  pesticide: "Carbendazim",
+  amount: "1 g/L",
+  timing: "Soil treatment",
+  purpose: "Fungal control"
+},
+{
+  disease: "Leaf Blotch",
+  crops: ["Wheat"],
+  symptoms: "Brown irregular spots",
+  severity: "Medium",
+  pesticide: "Chlorothalonil",
+  amount: "2 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Red Rot",
+  crops: ["Sugarcane"],
+  symptoms: "Red discoloration inside stem",
+  severity: "High",
+  pesticide: "Carbendazim",
+  amount: "1 g/L",
+  timing: "Early stage",
+  purpose: "Controls fungus"
+},
+{
+  disease: "Top Rot",
+  crops: ["Sugarcane"],
+  symptoms: "Rotting top leaves",
+  severity: "Medium",
+  pesticide: "Metalaxyl",
+  amount: "2 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Sigatoka Leaf Spot",
+  crops: ["Banana"],
+  symptoms: "Black streaks on leaves",
+  severity: "High",
+  pesticide: "Propiconazole",
+  amount: "1 ml/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Panama Wilt",
+  crops: ["Banana"],
+  symptoms: "Yellowing and wilting",
+  severity: "High",
+  pesticide: "Carbendazim",
+  amount: "2 g/L",
+  timing: "Soil treatment",
+  purpose: "Controls fungus"
+},
+{
+  disease: "Chilli Dieback",
+  crops: ["Chili"],
+  symptoms: "Drying branches",
+  severity: "High",
+  pesticide: "Copper fungicide",
+  amount: "3 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Leaf Curl Virus",
+  crops: ["Cotton", "Tomato"],
+  symptoms: "Curled leaves",
+  severity: "High",
+  pesticide: "Thiamethoxam",
+  amount: "0.4 g/L",
+  timing: "Early stage",
+  purpose: "Controls vector insects"
+},
+{
+  disease: "Brinjal Wilt",
+  crops: ["Brinjal"],
+  symptoms: "Sudden plant wilting",
+  severity: "High",
+  pesticide: "Carbendazim",
+  amount: "1 g/L",
+  timing: "Soil treatment",
+  purpose: "Fungal control"
+},
+{
+  disease: "Okra Yellow Vein Mosaic",
+  crops: ["Okra"],
+  symptoms: "Yellow veins on leaves",
+  severity: "High",
+  pesticide: "Imidacloprid",
+  amount: "0.3 ml/L",
+  timing: "Early stage",
+  purpose: "Controls whiteflies"
+},
+{
+  disease: "Citrus Greening",
+  crops: ["Citrus"],
+  symptoms: "Yellow shoots, bitter fruits",
+  severity: "High",
+  pesticide: "Imidacloprid",
+  amount: "0.5 ml/L",
+  timing: "Early stage",
+  purpose: "Controls psyllids"
+},
+{
+  disease: "Tea Mosquito Bug",
+  crops: ["Tea"],
+  symptoms: "Brown patches on leaves",
+  severity: "Medium",
+  pesticide: "Quinalphos",
+  amount: "2 ml/L",
+  timing: "Early stage",
+  purpose: "Insect control"
+},
+{
+  disease: "Coffee Berry Borer",
+  crops: ["Coffee"],
+  symptoms: "Holes in berries",
+  severity: "High",
+  pesticide: "Chlorpyrifos",
+  amount: "1 ml/L",
+  timing: "Fruit stage",
+  purpose: "Controls beetles"
+},
+{
+  disease: "Mango Hopper",
+  crops: ["Mango"],
+  symptoms: "Sticky leaves, insects",
+  severity: "Medium",
+  pesticide: "Imidacloprid",
+  amount: "0.3 ml/L",
+  timing: "Flowering stage",
+  purpose: "Insect control"
+},
+{
+  disease: "Papaya Ring Spot Virus",
+  crops: ["Papaya"],
+  symptoms: "Ring patterns on fruits",
+  severity: "High",
+  pesticide: "Neem Oil",
+  amount: "3 ml/L",
+  timing: "Early stage",
+  purpose: "Controls vectors"
+},
+{
+  disease: "Groundnut Leaf Spot",
+  crops: ["Groundnut"],
+  symptoms: "Brown circular spots",
+  severity: "Medium",
+  pesticide: "Mancozeb",
+  amount: "2 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Tikka Disease",
+  crops: ["Groundnut"],
+  symptoms: "Dark leaf spots",
+  severity: "High",
+  pesticide: "Chlorothalonil",
+  amount: "2 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Sunflower Downy Mildew",
+  crops: ["Sunflower"],
+  symptoms: "White fungal growth",
+  severity: "Medium",
+  pesticide: "Metalaxyl",
+  amount: "2 g/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Soybean Rust",
+  crops: ["Soybean"],
+  symptoms: "Brown pustules",
+  severity: "High",
+  pesticide: "Tebuconazole",
+  amount: "1 ml/L",
+  timing: "Early stage",
+  purpose: "Fungal control"
+},
+{
+  disease: "Castor Wilt",
+  crops: ["Castor"],
+  symptoms: "Wilting plants",
+  severity: "High",
+  pesticide: "Carbendazim",
+  amount: "1 g/L",
+  timing: "Soil treatment",
+  purpose: "Fungal control"
 }
   ];
 
@@ -506,22 +806,22 @@ const suggestionWord = getClosestMatch(input);
 
           {/* Suggestions */}
           {suggestions.length > 0 && (
-            <div className="bg-white rounded-lg">
-              {suggestions.map((item, i) => (
-                <div
-                  key={i}
-                  onClick={() => {
-                    setInput(item.disease);
-                    setResult([item]);
-                    setSuggestions([]);
-                  }}
-                  className="p-2 cursor-pointer hover:bg-green-100"
-                >
-                  🦠 {item.disease}
-                </div>
-              ))}
-            </div>
-          )}
+  <div className="max-h-48 overflow-y-auto mt-2 w-full bg-white/50 backdrop-blur-md border border-white/20 shadow-lg rounded-lg overflow-hidden">
+    {suggestions.map((item, i) => (
+      <div
+        key={i}
+        onClick={() => {
+          setInput(item.disease);
+          setResult([item]);
+          setSuggestions([]);
+        }}
+        className="p-3 cursor-pointer hover:bg-white/30 text-black transition"
+      >
+        🦠 {item.disease}
+      </div>
+    ))}
+  </div>
+)}
 
           
 
@@ -529,7 +829,7 @@ const suggestionWord = getClosestMatch(input);
 {/* TYPO SUGGESTION */}
           {input && result.length === 0 && suggestionWord && (
             <div
-              className="p-2 bg-yellow-100 rounded cursor-pointer"
+              className="p-2 bg-yellow-100 rounded cursor-pointer "
               onClick={() => {
                 setInput(suggestionWord);
                 setResult(pesticideData);
@@ -548,11 +848,14 @@ const suggestionWord = getClosestMatch(input);
         {result.map((item, i) => (
           <div
             key={i}
+  
+
             onClick={() => {
               setResult([item]); // show full details
               setShowOnlyNames(false);
             }}
-            className="p-3 bg-white rounded cursor-pointer hover:bg-green-100 font-semibold"
+            className="p-3 bg-white/50 backdrop-blur-md border border-white/20 shadow-lg rounded cursor-pointer hover:bg-green-100 font-semibold"
+            // className="p-3 bg-white rounded cursor-pointer hover:bg-green-100 font-semibold"
           >
             🦠 {item.disease}
           </div>
@@ -593,7 +896,7 @@ const suggestionWord = getClosestMatch(input);
           {/* Default 9 diseases */}
           {!input && (
             <div>
-              <h2 className="text-xl font-bold mb-3">
+              <h2 className="text-black text-xl font-bold mb-3">
                 🧪 Common Crop Diseases
               </h2>
 

@@ -32,6 +32,26 @@ export default function Index() {
     year: "numeric",
   });
 
+  const getIndianTimes = () => {
+  const now = new Date();
+
+  const IST = now.toLocaleTimeString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const UTC = now.toLocaleTimeString("en-GB", {
+    timeZone: "UTC",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  return { IST, UTC };
+};
+
+const { IST, UTC } = getIndianTimes();
+
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return "Good Morning 🌾";
@@ -61,9 +81,19 @@ export default function Index() {
             </p>
           </div>
 
-          <p className="text-xs sm:text-sm font-semibold text-white">
-            📅 {today}
-          </p>
+          <div className="text-right text-white space-y-1">
+  <p className="text-s sm:text-sm font-semibold">
+    📅 {today}
+  </p>
+
+  <p className="text-s text-white/90 font-bold text-primary">
+    🕒 IST: {IST}
+  </p>
+
+  {/* <p className="text-s text-white/90 font-bold text-primary">
+    🌍 UTC: {UTC}
+  </p> */}
+</div>
         </div>
       </div>
 
