@@ -3,12 +3,14 @@ import { Cloud, BarChart3, Sprout, Home } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroFarm from "@/assets/hero-farm.jpg";
 import { FlaskConical } from "lucide-react";
+import { Bug } from "lucide-react"; // or use FlaskConical again if you want
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
   { path: "/graphs", label: "Analytics", icon: BarChart3 },
   { path: "/recommendations", label: "Crop Planner", icon: Sprout },
   { path: "/fertilizers", label: "Fertilizers", icon: FlaskConical },
+  { path: "/pesticides", label: "Pesticides", icon: Bug },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

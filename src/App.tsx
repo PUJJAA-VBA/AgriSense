@@ -8,6 +8,7 @@ import Graphs from "./pages/Graphs";
 import Recommendations from "./pages/Recommendations";
 import NotFound from "./pages/NotFound";
 import Fertilizers from "./pages/Fertilizers";
+import Pesticides from "./pages/Pesticides";
 
 
 const queryClient = new QueryClient();
@@ -22,8 +23,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/graphs" element={<Graphs />} />
           <Route path="/recommendations" element={<Recommendations />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/pesticides" element={<Pesticides/>} />
           <Route path="/fertilizers" element={<Fertilizers />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

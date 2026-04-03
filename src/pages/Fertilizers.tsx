@@ -191,7 +191,7 @@ export default function Fertilizers() {
             🌱 Fertilizer Recommendation
           </h1>
           <p className="text-black text-muted-primary mt-1">
-            Get fertilizer suggestions based on your crop
+            Smart fertilizer suggestions based on crop and growth stage
           </p>
         </div>
 
