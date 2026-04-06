@@ -33,6 +33,7 @@ export interface ForecastDay {
   description: string;
   icon: string;
   rain: number;
+  pop?: number; // ✅ ADD THIS LINE
 }
 
 export async function fetchCurrentWeather(lat: number, lon: number): Promise<CurrentWeather> {
@@ -83,6 +84,7 @@ export async function fetchForecast(lat: number, lon: number): Promise<ForecastD
         description: item.weather[0].description,
         icon: item.weather[0].icon,
         rain: item.rain?.["3h"] || 0,
+        pop: item.pop || 0, // ✅ ADD THIS LINE
       });
     } else {
       const existing = days.get(date)!;
