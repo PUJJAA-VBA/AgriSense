@@ -10,8 +10,17 @@ import { useLocation } from "../context/LocationContext";
 
 export default function Index() {
   const { city, setCity } = useLocation();
-  const { resetToCurrentLocation } = useWeather();
-  const { current, forecast, loading, error, hasKey, checkKey, fetchWeatherByCity } = useWeather(city);
+
+const {
+  current,
+  forecast,
+  loading,
+  error,
+  hasKey,
+  checkKey,
+  fetchWeatherByCity,
+  resetToCurrentLocation
+} = useWeather(city);
 
   if (!hasKey) {
     return (
@@ -136,7 +145,10 @@ onChange={(e) => setCity(e.target.value)}
   x
 </button>
   <button
-    onClick={() => fetchWeatherByCity(city)}
+    onClick={() => {
+  if (!city.trim()) return;
+  fetchWeatherByCity(city);
+}}
     className="px-4 bg-neutral-900/70 backdrop-blur-lg border-b border-white/20 shadow-lg text-white rounded-lg"
   >
     Search
@@ -244,7 +256,7 @@ onChange={(e) => setCity(e.target.value)}
               </h2>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
-                {forecast.map((day) => (
+                {(forecast || []).map((day) => (
                   <Card
                     key={day.date}
                     className="bg-white/60 backdrop-blur-md border border-white/20 shadow-lg rounded-xl">

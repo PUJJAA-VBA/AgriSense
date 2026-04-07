@@ -21,7 +21,7 @@ export default function Recommendations() {
   if (city) {
     fetchWeatherByCity(city);
   }
-}, [city]);
+}, []); // 🔥 run only once
   
 
   const crops = useMemo(() => {
