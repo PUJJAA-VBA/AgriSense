@@ -137,7 +137,7 @@ onChange={(e) => setCity(e.target.value)}
 
 <button
   onClick={() => {
-    // setCity("");
+    setCity("");
     resetToCurrentLocation(); // ✅ CLEAN RESET
   }}
   className="px-3 bg-gray-500 text-white rounded-lg"
