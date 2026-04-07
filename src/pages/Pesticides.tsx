@@ -169,6 +169,66 @@ export default function Pesticides() {
   purpose: "Fungal control"
 },
 {
+  disease: "Minor Leaf Spot",
+  crops: ["Rice", "Wheat"],
+  symptoms: "Small scattered spots",
+  severity: "Low",
+  pesticide: "Neem Oil",
+  amount: "2 ml/L",
+  timing: "Early stage",
+  purpose: "Prevents mild fungal growth"
+},
+{
+  disease: "Mild Aphid Presence",
+  crops: ["Tomato", "Chili"],
+  symptoms: "Few insects on leaves",
+  severity: "Low",
+  pesticide: "Soap Water Spray",
+  amount: "5 ml/L",
+  timing: "Early stage",
+  purpose: "Removes small pest colonies"
+},
+{
+  disease: "Early Powdery Mildew",
+  crops: ["Cucumber"],
+  symptoms: "Light white patches",
+  severity: "Low",
+  pesticide: "Baking Soda Spray",
+  amount: "1 g/L",
+  timing: "Initial stage",
+  purpose: "Stops early fungal spread"
+},
+{
+  disease: "Leaf Yellowing (Nutrient)",
+  crops: ["Banana", "Rice"],
+  symptoms: "Slight yellow leaves",
+  severity: "Low",
+  pesticide: "Micronutrient Spray",
+  amount: "As required",
+  timing: "Early stage",
+  purpose: "Corrects nutrient deficiency"
+},
+{
+  disease: "Mild Whitefly Attack",
+  crops: ["Cotton", "Tomato"],
+  symptoms: "Few whiteflies under leaves",
+  severity: "Low",
+  pesticide: "Neem Oil",
+  amount: "3 ml/L",
+  timing: "Early stage",
+  purpose: "Eco-friendly pest control"
+},
+{
+  disease: "Minor Leaf Curl",
+  crops: ["Chili"],
+  symptoms: "Slight curling",
+  severity: "Low",
+  pesticide: "Neem Extract",
+  amount: "2 ml/L",
+  timing: "Initial stage",
+  purpose: "Prevents virus spread"
+},
+{
   disease: "Soybean Mosaic Virus",
   crops: ["Soybean"],
   symptoms: "Mosaic leaves",
