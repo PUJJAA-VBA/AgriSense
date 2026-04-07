@@ -14,8 +14,8 @@ export function useWeather(city?: string) {
 
 
   const fetchWeatherByCity = async (city: string) => {
-  if (!city) return;
-
+  if (!city.trim()) return;
+  setError(null); // ✅ CLEAR OLD ERROR
   setManualLocation(true); // ✅ VERY IMPORTANT
   setLoading(true);
 
@@ -41,14 +41,22 @@ export function useWeather(city?: string) {
 
   setLoading(false);
 };
+
+useEffect(() => {
+  if (city) {
+    fetchWeatherByCity(city);
+  }
+}, [city]);
+
   useEffect(() => {
-  if (manualLocation) return; // ❌ STOP overriding
+  // 👉 If user has searched city → DON'T use GPS
+  if (city) return;
 
   navigator.geolocation.getCurrentPosition(
     (pos) => setCoords({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
     () => setCoords({ lat: 28.6139, lon: 77.209 })
   );
-}, [manualLocation]);
+}, [city]);
 
   const fetchDataByCoords = async (lat: number, lon: number) => {
   try {
@@ -84,8 +92,9 @@ export function useWeather(city?: string) {
   }, [coords]);
 
   useEffect(() => {
-    if (hasKey && coords) fetchData();
-  }, [hasKey, coords, fetchData]);
+  if (manualLocation) return; // 🔥 STOP override
+  if (hasKey && coords) fetchData();
+}, [hasKey, coords, fetchData, manualLocation]);
 
   return { current, forecast, loading, error, hasKey, checkKey, refetch: fetchData, fetchWeatherByCity, resetToCurrentLocation: () => {
     setManualLocation(false);

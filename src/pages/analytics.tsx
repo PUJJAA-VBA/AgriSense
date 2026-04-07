@@ -10,15 +10,19 @@ import { useLocation } from "../context/LocationContext";
 
 
 export default function Graphs() {
-  let city = "";
+//   let city = "";
 
-try {
-  const location = useLocation();
-  city = location.city;
-} catch (e) {
-  console.log("LocationProvider missing");
-}
-  const { forecast, loading } = useWeather();
+
+  
+// try {
+//   const location = useLocation();
+//   city = location.city;
+// } catch (e) {
+//   console.log("LocationProvider missing");
+// }
+  const { city } = useLocation();
+
+  const { forecast, loading } = useWeather(city);
   console.log(forecast);
   const data = (forecast || []).map((d) => ({
     day: d.day,

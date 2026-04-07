@@ -14,14 +14,16 @@ import { useLocation } from "../context/LocationContext";
 
 
 
-export default function Recommendations() {
+
+  export default function Recommendations() {
   const { city } = useLocation();
-  const { current, forecast, loading, fetchWeatherByCity } = useWeather();
-  useEffect(() => {
-  if (city) {
-    fetchWeatherByCity(city);
-  }
-}, []); // 🔥 run only once
+
+  const { current, forecast, loading } = useWeather(city);
+//   useEffect(() => {
+//   if (city) {
+//     fetchWeatherByCity(city);
+//   }
+// }, [city]); // 🔥 run only once
   
 
   const crops = useMemo(() => {
