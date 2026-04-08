@@ -9,6 +9,7 @@ import Recommendations from "./pages/cropplanner";
 import NotFound from "./pages/NotFound";
 import Fertilizers from "./pages/Fertilizers";
 import Pesticides from "./pages/Pesticides";
+import DiseaseScanner from "./pages/DiseaseScanner";
 import { LocationProvider } from "./context/LocationContext";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/recommendations" element={<Recommendations />} />
           <Route path="/pesticides" element={<Pesticides/>} />
           <Route path="/fertilizers" element={<Fertilizers />} />
+          <Route path="/scanner" element={<DiseaseScanner />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
     </TooltipProvider>

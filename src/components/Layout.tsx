@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Cloud, BarChart3, Sprout, Home } from "lucide-react";
+import { Cloud, BarChart3, Sprout, Home, Camera } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroFarm from "@/assets/hero-farm.jpg";
 import { FlaskConical } from "lucide-react";
@@ -12,6 +12,7 @@ const navItems = [
   { path: "/recommendations", label: "Crop Planner", icon: Sprout },
   { path: "/fertilizers", label: "Fertilizers", icon: FlaskConical },
   { path: "/pesticides", label: "Pesticides", icon: Bug },
+  { label: "Scanner", path: "/scanner", icon: Camera },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
