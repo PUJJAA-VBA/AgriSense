@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Camera } from "lucide-react";
@@ -14,17 +14,49 @@ export default function DiseaseScanner() {
   const webcamRef = useRef<any>(null);
   const [fileName, setFileName] = useState("");
   const [error, setError] = useState("");
+  const [devices, setDevices] = useState<MediaDeviceInfo[]>([]);
+const [deviceId, setDeviceId] = useState<string | undefined>(undefined);
 
-  const isPlantImage = (img: string | File | null) => {
-  if (!img) return false;
 
-  // ✅ Allow ALL uploaded files (temporary fix)
-  if (typeof img !== "string") {
-    return true;
-  }
+  const isPlantImage = (img: string | File | null): Promise<boolean> => {
+  return new Promise((resolve) => {
+    if (!img) return resolve(false);
 
-  // Webcam image
-  return true;
+    const imageElement = new Image();
+
+    imageElement.src =
+      typeof img === "string"
+        ? img
+        : URL.createObjectURL(img);
+
+    imageElement.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = imageElement.width;
+      canvas.height = imageElement.height;
+
+      ctx?.drawImage(imageElement, 0, 0);
+
+      const data = ctx?.getImageData(0, 0, canvas.width, canvas.height).data;
+
+      let greenPixels = 0;
+      let totalPixels = 0;
+
+      for (let i = 0; i < data!.length; i += 4) {
+        const r = data![i];
+        const g = data![i + 1];
+        const b = data![i + 2];
+
+        if (g > r && g > b) greenPixels++;
+        totalPixels++;
+      }
+
+      const greenRatio = greenPixels / totalPixels;
+
+      resolve(greenRatio > 0.15); // ✅ threshold
+    };
+  });
 };
 
   const handleClear = () => {
@@ -35,20 +67,20 @@ export default function DiseaseScanner() {
   setFileName(""); // ✅ reset
 };
 
-  const handleDetect = () => {
+  const handleDetect = async () => {
   if (!image && !capturedImage) return;
-
-  // ✅ CHECK IF PLANT IMAGE
-  const valid = isPlantImage(image || capturedImage);
-
-  if (!valid) {
-    setResult([]);
-    setError("❌ Please upload a valid plant image");
-    return;
-  }
 
   setLoading(true);
   setError("");
+
+  const valid = await isPlantImage(image || capturedImage);
+
+  if (!valid) {
+    setLoading(false);
+    setResult([]);
+    setError("❌ No plant detected. Please capture a plant image.");
+    return;
+  }
 
   const random =
     pesticideData[Math.floor(Math.random() * pesticideData.length)];
@@ -56,8 +88,23 @@ export default function DiseaseScanner() {
   setTimeout(() => {
     setResult([random]);
     setLoading(false);
-  }, 1500);
+  }, 1000);
 };
+
+useEffect(() => {
+  navigator.mediaDevices.enumerateDevices().then((devices) => {
+    const videoDevices = devices.filter(d => d.kind === "videoinput");
+    setDevices(videoDevices);
+
+    // 👉 Prefer back camera
+    const backCam = videoDevices.find(d =>
+      d.label.toLowerCase().includes("back") ||
+      d.label.toLowerCase().includes("environment")
+    );
+
+    setDeviceId(backCam?.deviceId || videoDevices[0]?.deviceId);
+  });
+}, []);
 
   return (
     <Layout>
@@ -96,8 +143,8 @@ export default function DiseaseScanner() {
   ref={webcamRef}
   screenshotFormat="image/jpeg"
   videoConstraints={{
-  facingMode: "environment"
-}}
+    deviceId: deviceId
+  }}
   className="w-full h-full object-cover"
 />
             )}
