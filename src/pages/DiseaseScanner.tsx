@@ -16,7 +16,7 @@ export default function DiseaseScanner() {
   const [error, setError] = useState("");
   const [devices, setDevices] = useState<MediaDeviceInfo[]>([]);
 const [deviceId, setDeviceId] = useState<string | undefined>(undefined);
-
+const [facingMode, setFacingMode] = useState<"user" | "environment">("environment");
 
   const isPlantImage = (img: string | File | null): Promise<boolean> => {
   return new Promise((resolve) => {
@@ -92,6 +92,12 @@ const [deviceId, setDeviceId] = useState<string | undefined>(undefined);
   }, 1000);
 };
 
+const handleSwitchCamera = () => {
+  setFacingMode((prev) =>
+    prev === "environment" ? "user" : "environment"
+  );
+};
+
 useEffect(() => {
   navigator.mediaDevices.enumerateDevices().then((devices) => {
     const videoDevices = devices.filter(d => d.kind === "videoinput");
@@ -144,8 +150,8 @@ useEffect(() => {
   ref={webcamRef}
   screenshotFormat="image/jpeg"
   videoConstraints={{
-    deviceId: deviceId
-  }}
+  facingMode: facingMode
+}}
   className="w-full h-full object-cover"
 />
             )}
@@ -153,19 +159,27 @@ useEffect(() => {
 
           {/* 📸 CAPTURE BUTTON */}
           {!capturedImage && !image && (
-            <button
-              onClick={() => {
-                const img = webcamRef.current.getScreenshot();
-                setCapturedImage(img);
-                setImage(null);
-              }}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg"
-            >
-              📸 Capture
-            </button>
-          )}
-          {error && (
-  <p className="text-red-600 text-Medium">{error}</p>
+  <div className="flex gap-3">
+    {/* Capture */}
+    <button
+      onClick={() => {
+        const img = webcamRef.current.getScreenshot();
+        setCapturedImage(img);
+        setImage(null);
+      }}
+      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg"
+    >
+      📸 Capture
+    </button>
+
+    {/* Switch Camera */}
+    <button
+      onClick={handleSwitchCamera}
+      className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-lg"
+    >
+      🔄 Switch
+    </button>
+  </div>
 )}
 
           {/* 📂 UPLOAD (HIDDEN AFTER CAPTURE) */}
