@@ -30,32 +30,36 @@ const [facingMode, setFacingMode] = useState<"user" | "environment">("environmen
         : URL.createObjectURL(img);
 
     imageElement.onload = () => {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
+  try {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-      canvas.width = imageElement.width;
-      canvas.height = imageElement.height;
+    canvas.width = imageElement.width;
+    canvas.height = imageElement.height;
 
-      ctx?.drawImage(imageElement, 0, 0);
+    ctx?.drawImage(imageElement, 0, 0);
 
-      const data = ctx?.getImageData(0, 0, canvas.width, canvas.height).data;
+    const data = ctx?.getImageData(0, 0, canvas.width, canvas.height).data;
 
-      let greenPixels = 0;
-      let totalPixels = 0;
+    let greenPixels = 0;
+    let totalPixels = 0;
 
-      for (let i = 0; i < data!.length; i += 4) {
-        const r = data![i];
-        const g = data![i + 1];
-        const b = data![i + 2];
+    for (let i = 0; i < data!.length; i += 4) {
+      const r = data![i];
+      const g = data![i + 1];
+      const b = data![i + 2];
 
-        if (g > r && g > b) greenPixels++;
-        totalPixels++;
-      }
+      if (g > r && g > b) greenPixels++;
+      totalPixels++;
+    }
 
-      const greenRatio = greenPixels / totalPixels;
+    const greenRatio = greenPixels / totalPixels;
 
-      resolve(greenRatio > 0.15); // ✅ threshold
-    };
+    resolve(greenRatio > 0.1); // ✅ LOWER threshold (more stable)
+  } catch {
+    resolve(false); // ✅ fallback
+  }
+};
   });
 };
 
@@ -69,27 +73,32 @@ const [facingMode, setFacingMode] = useState<"user" | "environment">("environmen
 };
 
   const handleDetect = async () => {
+  if (loading) return; // ✅ STOP multiple clicks
+
   if (!image && !capturedImage) return;
 
   setLoading(true);
   setError("");
 
-  const valid = await isPlantImage(image || capturedImage);
+  try {
+    const valid = await isPlantImage(image || capturedImage);
 
-  if (!valid) {
-    setLoading(false);
-    setResult([]);
-    setError("❌ No plant detected. Please capture a plant image.");
-    return;
+    if (!valid) {
+      setResult([]);
+      setError("❌ No plant detected. Please capture a plant image.");
+      return;
+    }
+
+    const random =
+      pesticideData[Math.floor(Math.random() * pesticideData.length)];
+
+    setResult([random]); // ✅ SET RESULT DIRECTLY
+
+  } catch (err) {
+    setError("⚠️ Detection failed. Try again.");
+  } finally {
+    setLoading(false); // ✅ ALWAYS RESET
   }
-
-  const random =
-    pesticideData[Math.floor(Math.random() * pesticideData.length)];
-
-  setTimeout(() => {
-    setResult([random]);
-    setLoading(false);
-  }, 1000);
 };
 
 const handleSwitchCamera = () => {
@@ -212,7 +221,7 @@ useEffect(() => {
 
             <button
               onClick={handleDetect}
-              disabled={!image && !capturedImage}
+              disabled={loading || (!image && !capturedImage)}
               className={`px-4 py-2 rounded-lg text-white ${
                 image || capturedImage
                   ? "bg-green-600 hover:bg-green-700"
