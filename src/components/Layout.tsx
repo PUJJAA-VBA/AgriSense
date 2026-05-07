@@ -12,7 +12,7 @@ const navItems = [
   { path: "/recommendations", label: "Crop Planner", icon: Sprout },
   { path: "/fertilizers", label: "Fertilizers", icon: FlaskConical },
   { path: "/pesticides", label: "Pesticides", icon: Bug },
-  { label: "Scanner", path: "/scanner", icon: Camera },
+  // { label: "Scanner", path: "/scanner", icon: Camera },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

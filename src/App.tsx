@@ -8,7 +8,7 @@ import Recommendations from "./pages/cropplanner";
 import NotFound from "./pages/NotFound";
 import Fertilizers from "./pages/Fertilizers";
 import Pesticides from "./pages/Pesticides";
-import Scanner from "@/components/Scanner";
+// import Scanner from "@/components/Scanner";
 import { Toaster } from "sonner";
 import { LocationProvider } from "./context/LocationContext";
 import { HashRouter } from "react-router-dom";
@@ -23,7 +23,7 @@ const App = () => (
       <Toaster />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/scanner" element={<Scanner />} />
+          {/* <Route path="/scanner" element={<Scanner />} /> */}
           <Route path="/graphs" element={<Graphs />} />
           <Route path="/recommendations" element={<Recommendations />} />
           <Route path="/pesticides" element={<Pesticides/>} />
